@@ -1,33 +1,20 @@
-import { useState } from "react";
 import { useAuth } from "@/components/context/use-auth";
 import { PageHeader } from "@/components/common/page-header";
 import { RecipeCollection } from "@/components/features/recipe/recipe-collection";
 import { Section } from "@/components/ui/section";
-import { Button } from "@/components/ui/button";
 
+// Authenticated user area ("/user"): the signed-in cook's own collection.
+// Sign out lives in the shared Navbar, so the page only owns its content.
 export default function HomePage() {
-  const { user, logout } = useAuth();
-  const [error, setError] = useState("");
-
-  async function handleLogout() {
-    try {
-      setError("");
-      await logout();
-    } catch {
-      setError("Unable to sign out. Please try again.");
-    }
-  }
+  const { user } = useAuth();
 
   return (
     <Section>
-      <PageHeader eyebrow="Your kitchen companion" title="Recipe Book" description="Keep your favorite meals in one place.">
-        <div className="flex flex-wrap items-center gap-4">
-          <span>{user?.name}</span>
-          <Button variant="secondary" onClick={handleLogout}>Sign out</Button>
-        </div>
-      </PageHeader>
-
-      {error && <p role="alert" className="mb-6 text-rose-700">{error}</p>}
+      <PageHeader
+        eyebrow="Your kitchen companion"
+        title="My Recipes"
+        description={`Welcome back, ${user?.name}. Manage the recipes you have published here.`}
+      />
 
       <RecipeCollection />
     </Section>

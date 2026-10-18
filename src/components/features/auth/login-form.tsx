@@ -50,8 +50,8 @@ export function LoginForm() {
         <Input id="auth-password" type="password" autoComplete={"current-password"} required minLength={1} value={password} onChange={(event) => setPassword(event.target.value)} />
       </div>
 
-      {error && <p role="alert" className="text-sm text-red-600">{error}</p>}
-      <Button type="submit" disabled={busy} className="mt-1 bg-emerald-900 py-3 font-medium hover:bg-emerald-950 disabled:cursor-wait disabled:opacity-60">{busy ? "Please wait…" : "Sign in"}</Button>
+      {error && <p role="alert" className="text-sm text-brand-700">{error}</p>}
+      <Button type="submit" disabled={busy} className="mt-1 py-3 font-medium disabled:cursor-wait disabled:opacity-60">{busy ? "Please wait…" : "Sign in"}</Button>
     </form>
   );
 }

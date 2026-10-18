@@ -36,7 +36,7 @@ export function AdminRecipesTable({ recipes, loading }: AdminRecipesTableProps) 
             <tr key={recipe.id}>
               <td>
                 <div className="flex min-w-48 items-center gap-3">
-                  <img src={recipe.image} alt="" className="h-12 w-12 rounded-lg object-cover" />
+                  <img src={recipe.image} alt="" className="h-12 w-12 object-cover" />
                   <span className="font-medium">{recipe.name}</span>
                 </div>
               </td>

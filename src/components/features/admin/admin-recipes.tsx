@@ -60,7 +60,7 @@ export function AdminRecipes() {
       </div>
 
       {error ? (
-        <p role="alert" className="rounded-xl bg-rose-50 p-4 text-rose-700">{error}</p>
+        <p role="alert" className="border border-brand-200 bg-brand-50 p-4 text-brand-700">{error}</p>
       ) : (
         <AdminRecipesTable recipes={recipes} loading={loading} />
       )}

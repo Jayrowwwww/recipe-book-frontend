@@ -6,11 +6,14 @@ export default function RecipePage() {
   const { id } = useParams();
 
   // The page reads the URL; the feature fetches and displays that recipe.
+  // Works for guests (public endpoint) and for the owner (edit/delete).
   return (
     <Section>
-      <Link to="/user" className="text-sm font-medium text-emerald-800 hover:text-emerald-950">
-        ← Back to recipes
-      </Link>
+      <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-2 text-sm text-ink-950/60">
+        <Link to="/" className="font-medium text-brand-600 hover:text-brand-700">Home</Link>
+        <span aria-hidden>/</span>
+        <span>Recipe</span>
+      </nav>
 
       {id && <RecipeDetails key={id} id={id} />}
     </Section>

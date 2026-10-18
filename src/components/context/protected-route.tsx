@@ -17,11 +17,3 @@ export function ProtectedRoute({ role }: { role: "USER" | "ADMIN" }) {
   return <Outlet />;
 }
 
-// Visiting / (or an unknown URL) sends the visitor to the appropriate home page.
-export function HomeRedirect() {
-  const { user, ready } = useAuth();
-  // Decide where to go only after the initial session check finishes.
-  if (!ready) return null;
-  // Signed out -> login, ADMIN -> admin area, USER -> personal recipe book.
-  return <Navigate to={!user ? "/auth/login" : user.role === "ADMIN" ? "/admin" : "/user"} replace />;
-}

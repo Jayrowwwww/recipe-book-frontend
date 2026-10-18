@@ -53,9 +53,9 @@ export function SignupForm() {
         <Label htmlFor="auth-password">Password</Label>
         <Input id="auth-password" type="password" autoComplete={"new-password"} required minLength={8} value={password} onChange={(event) => setPassword(event.target.value)} />
       </div>
-      <p className="-mt-2 text-xs text-gray-500">Use at least 8 characters, including one uppercase letter and one number.</p>
-      {error && <p role="alert" className="text-sm text-red-600">{error}</p>}
-      <Button type="submit" disabled={busy} className="mt-1 bg-emerald-900 py-3 font-medium hover:bg-emerald-950 disabled:cursor-wait disabled:opacity-60">{busy ? "Please wait…" : "Create account"}</Button>
+      <p className="-mt-2 text-xs text-ink-600">Use at least 8 characters, including one uppercase letter and one number.</p>
+      {error && <p role="alert" className="text-sm text-brand-700">{error}</p>}
+      <Button type="submit" disabled={busy} className="mt-1 py-3 font-medium disabled:cursor-wait disabled:opacity-60">{busy ? "Please wait…" : "Create account"}</Button>
     </form>
   );
 }
